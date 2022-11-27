@@ -60,11 +60,89 @@
 # - A (3,6); B (2,1) -> 5,09
 # - A (7,-5); B (1,-1) -> 7,21
 
-list1 = []
-list2 = []
-for i in range(0, 2):
-    list1.append(int(input()))
-for i in range(0, 2):
-    list2.append(int(input()))
-L = (((list2[0] - list1[0])**2) + ((list2[1] - list1[1])**2)) ** 0.5
-print("Расстояние между двумя точками равно: ", int(L * 100) / 100)
+# list1 = []
+# list2 = []
+# for i in range(0, 2):
+#     list1.append(int(input()))
+# for i in range(0, 2):
+#     list2.append(int(input()))
+# L = (((list2[0] - list1[0])**2) + ((list2[1] - list1[1])**2)) ** 0.5
+# print("Расстояние между двумя точками равно: ", int(L * 100) / 100)
+
+# a = [int(i) for i in input().split()]
+# b = len(a)
+# n = []
+# for i in range(b):
+#     if a[i] != a[-1]:
+#         n.append(a[i-1] + a[i+1])
+#     if a[i] == a[-1]:
+#         n.append(a[-2] + a[0])
+# print(n)
+
+
+
+# /////////////////////////////////////Seminar 2////////////////////////////////////////
+
+# Задача 1...........................
+# Напишите программу, которая принимает на вход вещественное число и показывает сумму его цифр.
+# Пример:
+# - 6782 -> 23
+# - 0,56 -> 11
+
+# a = input()
+# count = 0
+# for i in a:
+#     count += int(i)
+# print(count)
+
+# Задача 2...............................
+#Напишите программу, которая принимает на вход число N и выдает набор произведений чисел от 1 до N.
+# Пример: пусть N = 4, тогда [ 1, 2, 6, 24 ] (1, 1*2, 1*2*3, 1*2*3*4)
+
+# n = int(input("Введите число: "))
+# array = []
+# count = 1
+# for i in range(n):
+#     i = i + 1
+#     count = i * count
+#     array.append(count)
+# print(*array)
+
+# Задача 3.
+# Задайте список из n чисел последовательности (1+(1/n))**n и выведите на экран их сумму
+# Пример: Для n = 4 {1:2, 2: 2.25, 3: 2.37, 4: 2.44}. Сумма 9.06
+
+# n = int(input())
+# array = []
+# count = 0
+# for i in range(1, n+1):
+#     array.append((((1+(1/i))**i)))
+# for i in array:
+#     count+=i
+# print(int(count*100)/100)
+
+# Задача 4.
+# Реализуйте алгоритм перемешивания списка.
+a = [int(i) for i in input().split()]
+for i in range(0, len(a)):
+    import random
+    index = random.randint(0, len(a)-1)
+    a[i], a[index] = a[index], a[i]
+    # temp = a[i]
+    # a[i] = a[index]
+    # a[index] = temp
+print(a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
