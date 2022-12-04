@@ -102,11 +102,11 @@
 # n = int(input("Введите число: "))
 # array = []
 # count = 1
-# for i in range(n):
-#     i = i + 1
+# for i in range(1, n+1):
 #     count = i * count
 #     array.append(count)
 # print(*array)
+
 
 # Задача 3.
 # Задайте список из n чисел последовательности (1+(1/n))**n и выведите на экран их сумму
@@ -123,17 +123,106 @@
 
 # Задача 4.
 # Реализуйте алгоритм перемешивания списка.
-a = [int(i) for i in input().split()]
-for i in range(0, len(a)):
-    import random
-    index = random.randint(0, len(a)-1)
-    a[i], a[index] = a[index], a[i]
-    # temp = a[i]
-    # a[i] = a[index]
-    # a[index] = temp
-print(a)
+# a = [int(i) for i in input().split()]
+# for i in range(len(a)):
+#     import random
+#     index = random.randint(0, len(a)-1)
+#     a[i], a[index] = a[index], a[i]
+#     # temp = a[i]
+#     # a[i] = a[index]
+#     # a[index] = temp
+# print(a)
 
+# /////////////////////////////////////Seminar 3////////////////////////////////////////
 
+# Задача 1.
+#Задайте список из нескольких чисел. Напишите программу, которая найдёт сумму элементов списка, стоящих на
+# нечётной позиции.
+
+# array = [int(i) for i in input("Введите значения списка: ").split()]
+# count = 0
+# for i in range(len(array)):
+#     if i%2 != 0:
+#         count += array[i]
+#     else:
+#         continue
+# print(f"Сумма элементов списка стоящих на нечетной позиции, равна {count}")
+
+# Задача 2.
+#Напишите программу, которая найдёт произведение пар чисел списка. Парой считаем первый и последний элемент, второй
+# и предпоследний и т.д.
+
+# array = [int(i) for i in input("Введите значения списка: ").split()]
+# new_array = []
+# while len(array) > 1:
+#     new_array.append(array[0]*array[len(array)-1])
+#     array.pop(0)
+#     array.pop(len(array)-1)
+#     if len(array) == 1:
+#         new_array.append(array[0] ** 2)
+#         break
+# print(new_array)
+
+# array = [int(i) for i in input("Введите значения списка: ").split()]
+# result = 0
+# while len(array) > 1:
+#     result = array[0]*array[len(array)-1]
+#     array.pop(0)
+#     array.pop(len(array)-1)
+#     print(result, end = " ")
+#     if len(array) == 1:
+#         result = array[0] ** 2
+#         print(result)
+#         break
+
+# Задача 3.
+#Задайте список из вещественных чисел. Напишите программу, которая найдёт разницу между максимальным и минимальным
+# значением дробной части элементов.
+# array = [float(i) for i in input("Введите значения списка: ").split()]
+# new_array = []
+# for i in range(len(array)):
+#     new_array.append(float(array[i])-int(array[i]))
+# print(round(max(new_array) - min(new_array),2))
+
+# Задача 4.
+# Напишите программу, которая будет преобразовывать десятичное число в двоичное.
+# number = int(input())
+# while number != 1:
+#     if number%2 != 0:
+#         print(1, end = "")
+#         number = (number-1)/2
+#     else:
+#         print(0, end = "")
+#         number = number/2
+
+# number = 45
+# while number != 1:
+#     print(number % 2)
+#     number = number // 2
+
+# Задача 5.
+# Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
+
+def fibonacci(number):
+    array = []
+    for i in range(0, number+1):
+        array.append(i)
+    for i in range(len(array)):
+        if array[i] == 0 or array[i] == 1:
+            continue
+        else:
+            array[i] = array[i-1]+array[i-2]
+    return array
+
+f1 = fibonacci(8)
+f1.reverse()
+f2 = fibonacci(8)[1:]
+for i in range(len(f1)):
+    if i%2 == 0:
+        f1[i] = -abs(f1[i])
+    else:
+        continue
+print(f1+f2)
 
 
 
