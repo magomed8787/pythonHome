@@ -186,7 +186,7 @@
 
 # Задача 4.
 # Напишите программу, которая будет преобразовывать десятичное число в двоичное.
-# number = int(input())
+# number = int(input("Введите десятичное число: "))
 # while number != 1:
 #     if number%2 != 0:
 #         print(1, end = "")
@@ -195,36 +195,100 @@
 #         print(0, end = "")
 #         number = number/2
 
-# number = 45
+# number = int(input("Введите десятичное число: "))
 # while number != 1:
-#     print(number % 2)
+#     print(number % 2, end = "")
 #     number = number // 2
 
 # Задача 5.
 # Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
 
-def fibonacci(number):
-    array = []
-    for i in range(0, number+1):
-        array.append(i)
-    for i in range(len(array)):
-        if array[i] == 0 or array[i] == 1:
-            continue
-        else:
-            array[i] = array[i-1]+array[i-2]
-    return array
+# def fibonacci(number):
+#     array = []
+#     for i in range(0, number+1):
+#         array.append(i)
+#     for i in range(len(array)):
+#         if array[i] == 0 or array[i] == 1:
+#             continue
+#         else:
+#             array[i] = array[i-1]+array[i-2]
+#     return array
+#
+# f1 = fibonacci(8)
+# f1.reverse()
+# f2 = fibonacci(8)[1:]
+# for i in range(len(f1)):
+#     if i%2 == 0:
+#         f1[i] = -abs(f1[i])
+#     else:
+#         continue
+# print(f1+f2)
 
-f1 = fibonacci(8)
-f1.reverse()
-f2 = fibonacci(8)[1:]
-for i in range(len(f1)):
-    if i%2 == 0:
-        f1[i] = -abs(f1[i])
-    else:
-        continue
-print(f1+f2)
+# def fibonacci(num):
+#     # num = int(input("Введите любое натуральное число: "))
+#     fib = []
+#     a, b = 1, 1
+#     for i in range(num):
+#         fib.append(a)
+#         a, b = b, a+b
+#     a, b = 0,1
+#     for j in range(num+1):
+#         fib.insert(0, a)
+#         a, b = b, a-b
+#     print(f"Список чисел Фибоначчи для {num}: {fib}")
+#
+# fibonacci(8)
+
+# /////////////////////////////////////Seminar 4////////////////////////////////////////
+#
+# Задача 1.
+# Задайте натуральное число N. Напишите программу, которая составит список простых множителей числа N.
+# number = int(input())
+# array = []
+# d = 2
+# while d <= number:
+#     if number%d == 0:
+#         array.append(d)
+#         number = number/d
+#     else:
+#         d+=1
+# print(array)
+
+# Задача 2.
+# Задайте последовательность чисел. Напишите программу, которая выведет список неповторяющихся элементов исходной
+# последовательности.
+
+# array = [int(i) for i in input("Введите значения списка: ").split()]
+# new_array = []
+# for i in array:
+#     if array.count(i) == 1:
+#         new_array.append(i)
+#     else:
+#         continue
+# print(new_array)
+
+# Задача 4.
+# Даны два файла, в каждом из которых находится запись многочлена. Задача - сформировать файл, содержащий сумму многочленов.
+
+with open('file1.txt', 'w', encoding='utf-8') as file:
+    file.write('2*x^2 + 5*x^5')
+with open('file2.txt', 'w', encoding='utf-8') as file:
+    file.write('3*x**4 + 9*x**6')
+
+with open('file1.txt','r') as file:
+    file1 = file.readline()
+    list_file1 = file1.split()
 
 
+with open('file2.txt','r') as file:
+    file2 = file.readline()
+    list_file2 = file2.split()
+
+print(f'{list_file1} + {list_file2}')
+sum_poly = list_file1 + list_file2
+
+with open('sum_file.txt', 'w', encoding='utf-8') as file:
+    file.write(f'{list_file1} + {list_file2}')
 
 
 
