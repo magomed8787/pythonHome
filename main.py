@@ -409,28 +409,83 @@ from random import randint
 # Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных. Пример: АААВВ = 3А2Б
 # Входные и выходные данные хранятся в отдельных текстовых файлах.
 
-with open('file1.txt', 'w', encoding='utf-8') as file:
-     file.write("AAABBBDDD")
+# with open('file1.txt', 'w', encoding='utf-8') as file:
+#      file.write("AAABBBDDD")
+#
+# with open('file1.txt', 'r') as file:
+#     string = file.readline()
+#
+# count = 1
+# string1 = ""
+# for i in range(len(string)-1):
+#     if string[i] == string[i+1]:
+#         count+=1
+#     elif string[i] != string[i+1]:
+#         string1 += (string[i] + str(count))
+#         count = 1
+# string1 += string[-1] + str(count)
+#
+# with open('file2.txt', 'w', encoding='utf-8') as data:
+#     data.write(string1)
+#
+# with open('file2.txt', 'r') as file:
+#     string2 = file.readline()
+# print(string2)
 
-with open('file1.txt', 'r') as file:
-    string = file.readline()
+# /////////////////////////////////////Seminar 6////////////////////////////
 
-count = 1
-string1 = ""
-for i in range(len(string)-1):
-    if string[i] == string[i+1]:
-        count+=1
-    elif string[i] != string[i+1]:
-        string1 += (string[i] + str(count))
-        count = 1
-string1 += string[-1] + str(count)
+# 1. Реализовать программу с использованием функции filter. Результат отобразить на экране в виде последовательности
+# оставшихся чисел в одну строку через пробел.
 
-with open('file2.txt', 'w', encoding='utf-8') as data:
-    data.write(string1)
+# string_num = input("Введите числа: ").split()
+#
+# # string_num = filter(lambda i: len(str(abs(int(i)))) == 2, string_num)
+#
+# g = list(filter(lambda x: (-99 <= int(x) <= -10) or (10 <= int(x) <= 99), string_num))
+#
+# print(g)
 
-with open('file2.txt', 'r') as file:
-    string2 = file.readline()
-print(string2)
+# 2. Дан список. Вывести отдельно буквы и цифры.
 
+# a = ("a", "b", "c", "12", "13")
+# str1 = []
+# number =[]
+# for i in a:
+#     if i.isdigit():
+#         number.append(i)
+#     else:
+#         str1.append(i)
+# print(number)
+# print(str1)
+
+# str1 = ("a", "b", "c", "12", "13")
+# numbers = filter(str.isdigit, str1)
+# str2 = filter(str.isalpha, str1)
+# print(*str2)
+# print(*numbers)
+
+# 3. Преобразовать набор списков
+# users = ["user1", "user2", "user3", "user4", "user5")
+# ids = [4, 5, 9, 14, 7]
+# salary = [111, 222, 333]
+# в другой набор:
+
+# ["user1", 4, 111]
+# ["user2", 5, 222]
+# ["user3", 9, 333]
+# и потом вернуть в исходное состояние:
+# ["user1", "user2", "user3")
+# [4, 5, 9]
+# [111, 222, 333]
+
+users = ["user1", "user2", "user3", "user4", "user5"]
+ids = [4, 5, 9, 14, 7]
+salary = [111, 222, 333]
+
+a, b, c = map(list, zip(users, ids, salary))
+print(a, b, c, sep = "\n")
+
+a, b, c = map(list, zip(a, b, c))
+print(a, b, c, sep = "\n")
 
 
