@@ -270,32 +270,167 @@
 # Задача 4.
 # Даны два файла, в каждом из которых находится запись многочлена. Задача - сформировать файл, содержащий сумму многочленов.
 
+# with open('file1.txt', 'w', encoding='utf-8') as file:
+#     file.write('2*x^2 + 5*x^5')
+# with open('file2.txt', 'w', encoding='utf-8') as file:
+#     file.write('3*x**4 + 9*x**6')
+#
+# with open('file1.txt','r') as file:
+#     file1 = file.readline()
+#     list_file1 = file1.split()
+#
+#
+# with open('file2.txt','r') as file:
+#     file2 = file.readline()
+#     list_file2 = file2.split()
+#
+# print(f'{list_file1} + {list_file2}')
+# sum_poly = list_file1 + list_file2
+#
+# with open('sum_file.txt', 'w', encoding='utf-8') as file:
+#     file.write(f'{list_file1} + {list_file2}')
+
+# /////////////////////////////////////Seminar 5////////////////////////////////////////
+
+# Задача 1.
+# Напишите программу, удаляющую из текста все слова, содержащие ""абв"".
+# st = input("Введите текст: ")
+# array = st.split()
+# for i in range(len(array)):
+#     if "абв" in array[i]:
+#         array.pop(i)
+# print(array)
+
+# Задача 2.
+# Задача №38: Создайте программу для игры с конфетами человек против человека.
+# Условие задачи: На столе лежит 2021 конфета.
+# Играют два игрока делая ход друг после друга. Первый ход определяется жеребьёвкой.
+# За один ход можно забрать не более чем 28 конфет.
+# Все конфеты оппонента достаются сделавшему последний ход.
+# Сколько конфет нужно взять первому игроку, чтобы забрать все конфеты у своего конкурента?
+# a) Добавьте игру против бота
+# б) Подумайте, как наделить бота "интеллектом"
+
+from random import randint
+#
+# def input_dat(name):
+#     x = int(input(f"{name}, введите количество конфет, которое возьмете от 1 до 28: "))
+#     while x < 1 or x > 28:
+#         x = int(input(f"{name}, введите корректное количество конфет: "))
+#     return x
+#
+# def p_print(name, k, counter, value):
+#     print(f"Ходил {name}, он взял {k}, теперь у него {counter}. Осталось на столе {value} конфет.")
+#
+# player1 = input("Введите имя первого игрока: ")
+# player2 = input("Введите имя второго игрока: ")
+# value = int(input("Введите количество конфет на столе: "))
+# flag = randint(0,2) # флаг очередности
+# if flag:
+#     print(f"Первый ходит {player1}")
+# else:
+#     print(f"Первый ходит {player2}")
+#
+# counter1 = 0
+# counter2 = 0
+# while value > 28:
+#     if flag:
+#         k = input_dat(player1)
+#         counter1+=k
+#         value -= k
+#         flag = False
+#         p_print(player1, k, counter1, value)
+#     else:
+#         k = input_dat(player2)
+#         counter2 += k
+#         value -= k
+#         flag = True
+#         p_print(player2, k, counter2, value)
+# if flag:
+#     print(f"Выиграл {player1}")
+# else:
+#     print(f"Выиграл {player2}")
+
+# Задача 3.
+# Создайте программу для игры в ""Крестики-нолики"".
+
+# board = list(range(1, 10))
+# wins = [(1,2,3), (4,5,6), (7,8,9), (1,4,7), (2,5,8), (3,6,9),(1,5,9),(3,5,7)]
+# def draw_board():            # Рисуем игровое поле
+#     print("-------------")
+#     for i in range(3):
+#         print("|", board[0 + i * 3], "|", board[1 + i * 3],"|", board[2 + i * 3], "|")
+#     print("-------------")
+# # draw_board()
+#
+# def take_input(player_token): #Функция ввода позиции. player_token в этот параметр передается либо x, либо Y
+#     while True:
+#         value = input("Куда поставить: "+player_token + "?: ") # valie =  в какую позицию поставить x
+#         if not (value in "123456789"):
+#             print("Ошибочный ввод. Повторите.")
+#             continue
+#         value = int(value)
+#         if str(board[value - 1]) in "xy": #Введенное значение для x или н уменьшаем на 1, для связки со списком(индексация в списке с ноля).
+#             print("Эта клетка уже занята")
+#             continue
+#         board[value - 1] = player_token #запись знака в свободную ячейку
+#         break
+# def chek_win():   #Функция проверки выигрышной комбинации
+#     for each in wins:
+#         if (board[each[0]-1]) == (board[each[1]-1]) == (board[each[2]-1]):
+#             return board[each[1]-1]
+#     else:
+#         return False
+#
+# def main():
+#     counter = 0 # Переменная counter отвечает за нумирацию хода
+#     while True:
+#         draw_board()
+#         if counter % 2 == 0: # Каждый четный ход ходят крестики, а нечетный игрики
+#             take_input("x")
+#         else:
+#             take_input("y")
+#         if counter > 3:     #Если сделано больше 3х ходов, проверяются выигрышные комбинации
+#             winner = chek_win()
+#             if winner:
+#                 draw_board()
+#                 print(winner, "победа!")
+#                 break
+#         counter += 1
+#         if counter > 8:
+#             draw_board()
+#             print("ничья!")
+#             break
+# main()
+
+
+
+# Задача 4
+# Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных. Пример: АААВВ = 3А2Б
+# Входные и выходные данные хранятся в отдельных текстовых файлах.
+
 with open('file1.txt', 'w', encoding='utf-8') as file:
-    file.write('2*x^2 + 5*x^5')
-with open('file2.txt', 'w', encoding='utf-8') as file:
-    file.write('3*x**4 + 9*x**6')
+     file.write("AAABBBDDD")
 
-with open('file1.txt','r') as file:
-    file1 = file.readline()
-    list_file1 = file1.split()
+with open('file1.txt', 'r') as file:
+    string = file.readline()
 
+count = 1
+string1 = ""
+for i in range(len(string)-1):
+    if string[i] == string[i+1]:
+        count+=1
+    elif string[i] != string[i+1]:
+        string1 += (string[i] + str(count))
+        count = 1
+string1 += string[-1] + str(count)
 
-with open('file2.txt','r') as file:
-    file2 = file.readline()
-    list_file2 = file2.split()
+with open('file2.txt', 'w', encoding='utf-8') as data:
+    data.write(string1)
 
-print(f'{list_file1} + {list_file2}')
-sum_poly = list_file1 + list_file2
-
-with open('sum_file.txt', 'w', encoding='utf-8') as file:
-    file.write(f'{list_file1} + {list_file2}')
-
-
-
-
-
-
-
+with open('file2.txt', 'r') as file:
+    string2 = file.readline()
+print(string2)
 
 
 
